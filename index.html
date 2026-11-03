@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Mansii 💗 | A Special Surprise</title>
+  <meta name="description" content="A special, emotional birthday surprise website crafted with love for Anu.">
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif), Outfit (Modern Clean Sans), and Dancing Script (Handwritten Signature) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Background Canvas & Floating Elements Container -->
+  <canvas id="starCanvas"></canvas>
+  <div id="ambientOverlay" class="ambient-overlay"></div>
+  <div id="floatingHeartsContainer" class="floating-hearts-container"></div>
+  <div id="floatingBalloonsContainer" class="floating-balloons-container"></div>
+
+  <!-- Music / Ambience Toggle -->
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle Atmosphere" title="Sound Atmosphere">
+    <span class="music-icon">🎵</span>
+  </button>
+
+  <!-- Main Multi-Screen Viewport -->
+  <main class="app-viewport">
+
+    <!-- ================= PAGE 1: INTRO ================= -->
+    <section id="page1" class="screen-page active">
+      <div class="page-content glass-card intro-card">
+        <div class="sparkle-badge animate-fade-in">✨ A MOMENT FOR YOU ✨</div>
+        <h1 class="cinematic-title animate-zoom-in">
+          <span>BUT</span>
+          <span class="gradient-text">THIS...</span>
+        </h1>
+        <div class="emoji-cluster animate-pop">😍 🎀</div>
+        <p class="subtitle animate-fade-in delay-1">A LITTLE SURPRISE FOR Mansii</p>
+        
+        <button id="btnPage1Next" class="btn-glow animate-pulse delay-2" onclick="goToPage(2)">
+          <span>OPEN THE SURPRISE ❤️</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 2: BIRTHDAY REVEAL ================= -->
+    <section id="page2" class="screen-page">
+      <div class="page-content glass-card reveal-card">
+        <!-- Glowing Pulsing Heart Animation -->
+        <div class="heart-pulse-wrapper">
+          <div class="glowing-heart"></div>
+        </div>
+
+        <span class="section-tag">THIS ONE IS FOR YOU</span>
+        <h1 class="page-heading">
+          Happy Birthday<br>
+          <span class="highlight-pink">Mansiii 💗</span>
+        </h1>
+        <p class="page-desc">A tiny corner of the internet, made with a lot of love.</p>
+
+        <button id="btnPage2Next" class="btn-glow" onclick="goToPage(3)">
+          <span>Tap to Continue 🌸</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 3: HEART / MEMORY TREE ================= -->
+    <section id="page3" class="screen-page">
+      <div class="page-content glass-card tree-card">
+        <!-- Animated Heart Tree SVG -->
+        <div class="heart-tree-container" id="heartTreeContainer" title="Tap the tree for love ✨">
+          <!-- Radiant Backlight Glow Aura -->
+          <div class="tree-glow-aura"></div>
+
+          <svg class="heart-tree-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ff758c"/>
+                <stop offset="35%" stop-color="#ff2a70"/>
+                <stop offset="75%" stop-color="#a855f7"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+              <linearGradient id="heartPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5e97"/>
+                <stop offset="100%" stop-color="#ff0844"/>
+              </linearGradient>
+              <linearGradient id="heartRuby" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff416c"/>
+                <stop offset="100%" stop-color="#ff4b2b"/>
+              </linearGradient>
+              <linearGradient id="heartRose" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff9a9e"/>
+                <stop offset="100%" stop-color="#fecfef"/>
+              </linearGradient>
+              <linearGradient id="heartPeach" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff758c"/>
+                <stop offset="100%" stop-color="#ff7eb3"/>
+              </linearGradient>
+              <linearGradient id="heartMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f72585"/>
+                <stop offset="100%" stop-color="#7209b7"/>
+              </linearGradient>
+              <linearGradient id="heartCoral" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff6b6b"/>
+                <stop offset="100%" stop-color="#ffa07a"/>
+              </linearGradient>
+              <linearGradient id="heartGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff758c"/>
+                <stop offset="100%" stop-color="#fcd34d"/>
+              </linearGradient>
+              <linearGradient id="heartWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#ffb8d0"/>
+              </linearGradient>
+              <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+
+            <!-- Trunk & Elegant Branching Structure -->
+            <g class="tree-structure" filter="url(#glowFilter)">
+              <!-- Main Center Spine -->
+              <path class="tree-trunk" d="M170 325 C170 275, 167 235, 170 195 C172 165, 168 135, 170 95" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="7" stroke-linecap="round"/>
+              <!-- Primary Left Bough -->
+              <path class="tree-trunk" d="M170 215 C155 190, 125 175, 95 155 C75 140, 60 130, 48 118" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="5" stroke-linecap="round"/>
+              <!-- Primary Right Bough -->
+              <path class="tree-trunk" d="M170 215 C185 190, 215 175, 245 155 C265 140, 280 130, 292 118" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="5" stroke-linecap="round"/>
+              <!-- Upper Left Branch -->
+              <path class="tree-trunk" d="M170 180 C150 155, 125 130, 105 100 C95 85, 85 70, 75 55" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="4.5" stroke-linecap="round"/>
+              <!-- Upper Right Branch -->
+              <path class="tree-trunk" d="M170 180 C190 155, 215 130, 235 100 C245 85, 255 70, 265 55" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="4.5" stroke-linecap="round"/>
+              <!-- Inner Left Twig -->
+              <path class="tree-trunk" d="M170 150 C160 125, 145 105, 135 75" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Inner Right Twig -->
+              <path class="tree-trunk" d="M170 150 C180 125, 195 105, 205 75" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Mid Left Twig -->
+              <path class="tree-trunk" d="M115 165 C100 145, 85 130, 75 110" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Mid Right Twig -->
+              <path class="tree-trunk" d="M225 165 C240 145, 255 130, 265 110" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Lower Left Twig -->
+              <path class="tree-trunk" d="M168 250 C145 245, 120 235, 100 215" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Lower Right Twig -->
+              <path class="tree-trunk" d="M172 250 C195 245, 220 235, 240 215" 
+                    fill="none" stroke="url(#trunkGrad)" stroke-width="3" stroke-linecap="round"/>
+            </g>
+
+            <!-- Lush, Blooming Heart Canopy -->
+            <g class="tree-hearts" filter="url(#glowFilter)">
+              <!-- LAYER 1: Deep Canopy Layer -->
+              <g transform="translate(170, 75) rotate(-5)"><path class="tree-heart" style="--scale: 0.95; --delay: 0.6s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartMagenta)"/></g>
+              <g transform="translate(148, 68) rotate(12)"><path class="tree-heart" style="--scale: 0.85; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(192, 68) rotate(-12)"><path class="tree-heart" style="--scale: 0.85; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(122, 78) rotate(-15)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartCoral)"/></g>
+              <g transform="translate(218, 78) rotate(15)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(98, 92) rotate(18)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(242, 92) rotate(-18)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartMagenta)"/></g>
+              <g transform="translate(158, 102) rotate(8)"><path class="tree-heart" style="--scale: 0.9; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(182, 102) rotate(-8)"><path class="tree-heart" style="--scale: 0.9; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(132, 112) rotate(-12)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.85s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartCoral)"/></g>
+              <g transform="translate(208, 112) rotate(12)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.85s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(78, 112) rotate(15)"><path class="tree-heart" style="--scale: 0.7; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartMagenta)"/></g>
+              <g transform="translate(262, 112) rotate(-15)"><path class="tree-heart" style="--scale: 0.7; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(108, 132) rotate(10)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(232, 132) rotate(-10)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartCoral)"/></g>
+              <g transform="translate(148, 138) rotate(-6)"><path class="tree-heart" style="--scale: 0.85; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(192, 138) rotate(6)"><path class="tree-heart" style="--scale: 0.85; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartMagenta)"/></g>
+              <g transform="translate(68, 132) rotate(-18)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.1s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(272, 132) rotate(18)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.1s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+
+              <!-- LAYER 2: Vibrant Mid-Foliage Layer -->
+              <g transform="translate(170, 48)"><path class="tree-heart" style="--scale: 1.2; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(148, 46) rotate(-12)"><path class="tree-heart" style="--scale: 0.9; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(192, 46) rotate(12)"><path class="tree-heart" style="--scale: 0.9; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(128, 56) rotate(15)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.1s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(212, 56) rotate(-15)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.1s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(170, 88) rotate(-3)"><path class="tree-heart" style="--scale: 1.3; --delay: 0.5s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(142, 90) rotate(-14)"><path class="tree-heart" style="--scale: 1.0; --delay: 0.75s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(198, 90) rotate(14)"><path class="tree-heart" style="--scale: 1.0; --delay: 0.75s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(84, 72) rotate(22)"><path class="tree-heart" style="--scale: 0.8; --delay: 1.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(256, 72) rotate(-22)"><path class="tree-heart" style="--scale: 0.8; --delay: 1.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(62, 92) rotate(-15)"><path class="tree-heart" style="--scale: 0.75; --delay: 1.3s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(278, 92) rotate(15)"><path class="tree-heart" style="--scale: 0.75; --delay: 1.3s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(114, 108) rotate(-8)"><path class="tree-heart" style="--scale: 1.05; --delay: 0.85s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(226, 108) rotate(8)"><path class="tree-heart" style="--scale: 1.05; --delay: 0.85s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartGold)"/></g>
+              <g transform="translate(170, 122)"><path class="tree-heart" style="--scale: 1.35; --delay: 0.6s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(94, 122) rotate(16)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.15s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(246, 122) rotate(-16)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.15s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(52, 115) rotate(25)"><path class="tree-heart" style="--scale: 0.7; --delay: 1.35s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(288, 115) rotate(-25)"><path class="tree-heart" style="--scale: 0.7; --delay: 1.35s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(132, 132) rotate(-15)"><path class="tree-heart" style="--scale: 0.95; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(208, 132) rotate(15)"><path class="tree-heart" style="--scale: 0.95; --delay: 0.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(170, 155) rotate(2)"><path class="tree-heart" style="--scale: 1.1; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRuby)"/></g>
+              <g transform="translate(78, 148) rotate(-20)"><path class="tree-heart" style="--scale: 0.75; --delay: 1.25s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(262, 148) rotate(20)"><path class="tree-heart" style="--scale: 0.75; --delay: 1.25s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(118, 155) rotate(12)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(222, 155) rotate(-12)"><path class="tree-heart" style="--scale: 0.85; --delay: 1.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+
+              <!-- LAYER 3: Radiant Highlight Accents -->
+              <g transform="translate(170, 30)"><path class="tree-heart" style="--scale: 0.7; --delay: 1.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(156, 65) rotate(-6)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(184, 65) rotate(6)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartGold)"/></g>
+              <g transform="translate(102, 65) rotate(-18)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.3s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(238, 65) rotate(18)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.3s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(128, 92) rotate(10)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(212, 92) rotate(-10)"><path class="tree-heart" style="--scale: 0.8; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(158, 112) rotate(-5)"><path class="tree-heart" style="--scale: 0.9; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartGold)"/></g>
+              <g transform="translate(182, 112) rotate(5)"><path class="tree-heart" style="--scale: 0.9; --delay: 0.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(142, 152) rotate(-10)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(198, 152) rotate(10)"><path class="tree-heart" style="--scale: 0.75; --delay: 0.95s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartGold)"/></g>
+              <g transform="translate(92, 172) rotate(15)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartWhite)"/></g>
+              <g transform="translate(248, 172) rotate(-15)"><path class="tree-heart" style="--scale: 0.65; --delay: 1.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(158, 180) rotate(-8)"><path class="tree-heart" style="--scale: 0.7; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(182, 180) rotate(8)"><path class="tree-heart" style="--scale: 0.7; --delay: 0.9s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+
+              <!-- LAYER 4: Lower Hanging & Fluttering Falling Hearts -->
+              <g transform="translate(72, 175) rotate(-25)"><path class="tree-heart" style="--scale: 0.6; --delay: 1.4s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(268, 175) rotate(25)"><path class="tree-heart" style="--scale: 0.6; --delay: 1.4s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(102, 210) rotate(18)"><path class="tree-heart" style="--scale: 0.6; --delay: 1.5s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(238, 210) rotate(-18)"><path class="tree-heart" style="--scale: 0.6; --delay: 1.5s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+              <g transform="translate(132, 235) rotate(-15)"><path class="tree-heart falling-heart" style="--scale: 0.5; --delay: 1.7s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPink)"/></g>
+              <g transform="translate(208, 240) rotate(12)"><path class="tree-heart falling-heart" style="--scale: 0.52; --delay: 1.8s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartPeach)"/></g>
+              <g transform="translate(162, 268) rotate(8)"><path class="tree-heart falling-heart" style="--scale: 0.45; --delay: 2.0s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartGold)"/></g>
+              <g transform="translate(115, 275) rotate(-12)"><path class="tree-heart falling-heart" style="--scale: 0.4; --delay: 2.2s;" d="M 0 -11 C -4 -19, -16 -17, -16 -7 C -16 3, -6 11, 0 17 C 6 11, 16 3, 16 -7 C 16 -17, 4 -19, 0 -11 Z" fill="url(#heartRose)"/></g>
+
+              <!-- LAYER 5: Twinkling Magic Sparkle Stars (✨) -->
+              <g transform="translate(170, 18)"><path class="tree-sparkle" style="--delay: 0.2s;" d="M 0 -7 Q 0 0 7 0 Q 0 0 0 7 Q 0 0 -7 0 Q 0 0 0 -7 Z" fill="#ffffff"/></g>
+              <g transform="translate(112, 48)"><path class="tree-sparkle" style="--delay: 0.8s;" d="M 0 -6 Q 0 0 6 0 Q 0 0 0 6 Q 0 0 -6 0 Q 0 0 0 -6 Z" fill="#fde047"/></g>
+              <g transform="translate(228, 48)"><path class="tree-sparkle" style="--delay: 1.4s;" d="M 0 -6 Q 0 0 6 0 Q 0 0 0 6 Q 0 0 -6 0 Q 0 0 0 -6 Z" fill="#ffffff"/></g>
+              <g transform="translate(62, 78)"><path class="tree-sparkle" style="--delay: 0.5s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#fde047"/></g>
+              <g transform="translate(278, 78)"><path class="tree-sparkle" style="--delay: 1.1s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#ffffff"/></g>
+              <g transform="translate(170, 98)"><path class="tree-sparkle" style="--delay: 1.7s;" d="M 0 -7 Q 0 0 7 0 Q 0 0 0 7 Q 0 0 -7 0 Q 0 0 0 -7 Z" fill="#fde047"/></g>
+              <g transform="translate(132, 122)"><path class="tree-sparkle" style="--delay: 0.4s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#ffffff"/></g>
+              <g transform="translate(208, 122)"><path class="tree-sparkle" style="--delay: 1.3s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#fde047"/></g>
+              <g transform="translate(82, 138)"><path class="tree-sparkle" style="--delay: 0.9s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#ffffff"/></g>
+              <g transform="translate(258, 138)"><path class="tree-sparkle" style="--delay: 1.6s;" d="M 0 -5 Q 0 0 5 0 Q 0 0 0 5 Q 0 0 -5 0 Q 0 0 0 -5 Z" fill="#fde047"/></g>
+              <g transform="translate(170, 170)"><path class="tree-sparkle" style="--delay: 2.1s;" d="M 0 -6 Q 0 0 6 0 Q 0 0 0 6 Q 0 0 -6 0 Q 0 0 0 -6 Z" fill="#ffffff"/></g>
+              <g transform="translate(145, 205)"><path class="tree-sparkle" style="--delay: 0.7s;" d="M 0 -4 Q 0 0 4 0 Q 0 0 0 4 Q 0 0 -4 0 Q 0 0 0 -4 Z" fill="#fde047"/></g>
+              <g transform="translate(195, 205)"><path class="tree-sparkle" style="--delay: 1.5s;" d="M 0 -4 Q 0 0 4 0 Q 0 0 0 4 Q 0 0 -4 0 Q 0 0 0 -4 Z" fill="#ffffff"/></g>
+            </g>
+          </svg>
+        </div>
+
+        <p class="emotional-quote">"For all the smiles, memories and little moments..."</p>
+        <p class="emotional-sub">This one's for you, Anu. ♡</p>
+
+        <button id="btnPage3Next" class="btn-glow" onclick="goToPage(4)">
+          <span>KEEP GOING ✨</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 4: BALLOON CELEBRATION ================= -->
+    <section id="page4" class="screen-page">
+      <div class="page-content glass-card balloon-card">
+        <span class="section-tag">A LITTLE CELEBRATION</span>
+        <h1 class="page-heading">
+          Today deserves<br>
+          <span class="highlight-pink">all the balloons. 🎈</span>
+        </h1>
+        <p class="page-desc">Because one birthday wish is never enough.</p>
+
+        <div class="balloon-stage">
+          <div class="preview-balloon b-pink">🎈</div>
+          <div class="preview-balloon b-gold">✨</div>
+          <div class="preview-balloon b-purple">🎈</div>
+          <div class="preview-balloon b-blue">🎈</div>
+        </div>
+
+        <button id="btnPage4Next" class="btn-glow" onclick="goToPage(5)">
+          <span>ONE MORE 💫</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 5: MEMORY CHOICE ================= -->
+    <section id="page5" class="screen-page">
+      <div class="page-content choice-card-container">
+        <div class="header-block">
+          <span class="section-tag">SPECIAL CHAPTERS</span>
+          <h1 class="page-heading">CHOOSE A LITTLE MEMORY</h1>
+          <p class="page-desc">Something I wanted you to see.</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- CARD 1: OUR MEMORIES -->
+          <div class="glass-card choice-box" onclick="goToPage(6)">
+            <div class="choice-icon">📸</div>
+            <h2 class="choice-title">OUR MEMORIES</h2>
+            <p class="choice-sub">A few favorite moments</p>
+            <span class="choice-cta">Open Gallery →</span>
+          </div>
+
+          <!-- CARD 2: A MESSAGE -->
+          <div class="glass-card choice-box" onclick="goToPage(7)">
+            <div class="choice-icon">💌</div>
+            <h2 class="choice-title">A MESSAGE</h2>
+            <p class="choice-sub">Something from my heart</p>
+            <span class="choice-cta">Read Letter →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 6: PHOTO MEMORIES GALLERY ================= -->
+    <section id="page6" class="screen-page">
+      <div class="page-content glass-card gallery-container-card">
+        <div class="gallery-top-bar">
+          <button class="nav-back-chip" onclick="goToPage(5)" title="Back to Choice">← Back</button>
+          <span class="gallery-counter" id="photoCounter">1 / 6</span>
+        </div>
+
+        <!-- Single Active Photo Container with Smooth Fade/Slide -->
+        <div class="photo-viewer-wrap">
+          <div id="photoFrame" class="photo-frame">
+            <img id="activePhotoImg" src="photos/photo1.jpg" alt="Memory with Anu" />
+            <div class="photo-glow-effect"></div>
+          </div>
+        </div>
+
+        <!-- Photo Caption -->
+        <p id="photoCaption" class="photo-caption">"All the smiles, fairy lights & happy balloons! 🎈✨"</p>
+
+        <!-- Navigation Controls -->
+        <div class="gallery-nav-actions">
+          <button id="btnPrevPhoto" class="btn-icon" onclick="prevPhoto()" aria-label="Previous Photo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          
+          <div class="gallery-dots" id="galleryDots">
+            <!-- Dynamically generated indicator dots -->
+          </div>
+
+          <button id="btnNextPhoto" class="btn-icon" onclick="nextPhoto()" aria-label="Next Photo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- Read My Message Button -->
+        <button id="btnGalleryToLetter" class="btn-glow mt-4" onclick="goToPage(7)">
+          <span>READ MY MESSAGE 💌</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 7: PERSONAL BIRTHDAY LETTER ================= -->
+    <section id="page7" class="screen-page">
+      <div class="page-content glass-card letter-paper-card">
+        <div class="letter-top-actions">
+          <button class="nav-back-chip" onclick="goToPage(5)">← Chapters</button>
+          <button class="nav-back-chip" onclick="goToPage(6)">📸 Gallery</button>
+        </div>
+
+        <div class="letter-header">
+          <div class="stamp-badge">FOR my dearrr❤️</div>
+          <h2 class="letter-title">A LITTLE NOTE FOR YOU 💌</h2>
+        </div>
+
+        <div class="letter-body">
+          <h3 class="salutation">Dear Mansii,</h3>
+          
+          <!-- Typewriter Output Box -->
+          <div id="typewriterTarget" class="typewriter-content"></div>
+          
+          <!-- Signature Block (Easy to modify "Your little one") -->
+          <div id="letterSignature" class="letter-signature">
+            <p>With lots of love,</p>
+            <p class="signature-name" id="customSignatureAuthor">Your little one ❤️</p>
+          </div>
+        </div>
+
+        <button id="btnLetterNext" class="btn-glow mt-4" onclick="goToPage(8)">
+          <span>ONE LAST SURPRISE ✨</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 8: FINAL SURPRISE ================= -->
+    <section id="page8" class="screen-page">
+      <div class="page-content glass-card final-card">
+        <div class="sparkle-badge">ONE LAST THING...</div>
+        
+        <div class="cake-emoji-bounce">🎂</div>
+
+        <h1 class="final-title">
+          HAPPY<br>
+          <span class="gradient-text">BIRTHDAY, Masiiii!</span> 🎉
+        </h1>
+
+        <p class="final-wishes">
+          May your smile stay this beautiful and may this year bring you countless reasons to smile.
+        </p>
+
+        <div class="final-actions-wrapper">
+          <!-- Celebrate Again Button -->
+          <button id="btnCelebrateAgain" class="btn-glow btn-celebrate" onclick="triggerGrandCelebration()">
+            <span>CELEBRATE AGAIN 🎉</span>
+            <div class="btn-shimmer"></div>
+          </button>
+
+          <!-- Replay Button -->
+          <button id="btnReplay" class="btn-secondary-glow" onclick="replaySurprise()">
+            <span>↺ REPLAY FROM START</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
